@@ -22,13 +22,15 @@
 
     `python Codecompletion_accuracy.py /home/user/java_files /home/user/results/output.csv`
 
-2. Get the data perturbation
+    `python Textcompletion_accuracy.py /path/to/your/input/folder /path/to/your/output/folder/output.csv`
+
+3. Get the data perturbation
 
    `python Text_perturbator.py /path/to/your/input/folder --output_folder /path/to/output/folder --n_perturb 3 --span_length 3 --mask_pct 0.5 --model t5-base`
 
    `python Code_perturbator.py /path/to/input/folder --output_folder /path/to/output/folder --n_perturbations 50 --alpha 0.5 --beta 0.5 -- lambda_spaces 3 --lambda_newlines 2`
 
-3. Get the data naturalness
+4. Get the data naturalness
 
    we reuse the existing code, `https://bitbucket.org/tuzhaopeng/cachelm_for_code_suggestion/src/master/readme.txt`
 
@@ -37,7 +39,7 @@
 
 /baselineCode: The implementation of baseline approach
 
-/SVM: The implementation of SVM
+/SVM: The implementation of classifier
 
 ### The steps to run baseline approach and our approach
 
