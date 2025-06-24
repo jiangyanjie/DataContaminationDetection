@@ -1,0 +1,59 @@
+package net.serubin.serubans.commands;
+
+import net.serubin.serubans.SeruBans;
+import net.serubin.serubans.util.HashMaps;
+
+import org.bukkit.ChatColor;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+
+public class DebugCommand implements CommandExecutor {
+
+    private SeruBans plugin;
+
+    public DebugCommand(SeruBans plugin) {
+        this.plugin = plugin;
+    }
+
+    public boolean onCommand(CommandSender sender, Command cmd,
+            String commandLabel, String[] args) {
+        if (commandLabel.equalsIgnoreCase("serubans")) {
+            if (sender.hasPermission(SeruBans.DEBUGPERM) || sender.isOp()
+                    || (!(sender instanceof Player))) {
+            if(args.length == 0){
+                return false;
+            }
+            if (args[0].startsWith("-")) {
+                if (args[0].contains("a")) {
+                    sender.sendMessage("Players: "
+                            + HashMaps.getFullPlayerList());
+                    sender.sendMessage("Banned Players: "
+                            + HashMaps.getFullBannedPlayers());
+                    sender.sendMessage("TempBan: "
+                            + HashMaps.getFullTempBannedTime());
+                    return true;
+                }
+                if (args[0].contains("p")) {
+                    sender.sendMessage("Players: "
+                            + HashMaps.getFullPlayerList());
+                }
+                if (args[0].contains("b")) {
+                    sender.sendMessage("Banned Players: "
+                            + HashMaps.getFullBannedPlayers());
+                }
+                if (args[0].contains("t")) {
+                    sender.sendMessage("TempBan: "
+                            + HashMaps.getFullTempBannedTime());
+                }
+                return true;
+            }
+            return false;
+            } else {
+                sender.sendMessage(ChatColor.RED + "You do not have permission!");
+            }
+        }
+        return false;
+    }
+}
