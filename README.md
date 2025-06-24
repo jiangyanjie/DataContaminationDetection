@@ -31,3 +31,31 @@
 3. Get the data naturalness
 
    we reuse the existing code, `https://bitbucket.org/tuzhaopeng/cachelm_for_code_suggestion/src/master/readme.txt`
+
+
+## Code Overview
+
+/baselineCode: The implementation of baseline approach
+
+/SVM: The implementation of SVM
+
+### The steps to run baseline approach and our approach
+
+1. run baseline approach
+
+    `python run.py /path/to/input /path/to/output`
+
+2. run our approach
+
+    `python classifier.py --train_path "path_to_train_file.xlsx" --test_path "path_to_test_file.xlsx" --output_path "path_to_save_predictions.xlsx"`
+
+   
+   
+
+
+
+
+
+
+
+
